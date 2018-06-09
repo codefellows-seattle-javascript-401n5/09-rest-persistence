@@ -1,0 +1,34 @@
+{
+  "name": "09-rest-persistence",
+  "version": "1.0.0",
+  "description": "Travis: Heroku: PR:",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --watchAll --coverage --verbose",
+    "lint": "eslint **/*.js",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuynh92/09-rest-persistence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuynh92/09-rest-persistence/issues"
+  },
+  "homepage": "https://github.com/khuynh92/09-rest-persistence#readme",
+  "devDependencies": {
+    "jest": "^23.1.0",
+    "jest-cli": "^23.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "eslint": "^4.19.1",
+    "superagent": "^3.8.3",
+    "uuid": "^3.2.1"
+  }
+}
