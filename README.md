@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.com/annaboyatyuk/09-rest-persistence.svg?branch=master)](https://travis-ci.com/annaboyatyuk/09-rest-persistence)
+
+pr 
+travis https://travis-ci.com/annaboyatyuk/09-rest-persistence/builds
+heroku https://anna-lab-9-rest-persistence.herokuapp.com/
+
 ![cf](https://i.imgur.com/7v5ASc8.png) Lab 09: Vanilla REST API w/ Persistence
 
 ## Submission Instructions
