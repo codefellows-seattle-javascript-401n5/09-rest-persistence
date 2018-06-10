@@ -38,7 +38,6 @@ describe('app', () => {
       .post('http://localhost:3003/api/v1/notes')
       .send(object)
       .then(data => {
-        console.log(data.body.id);
         return superagent
           .get(`http://localhost:3003/api/v1/notes?id=${data.body.id}`)
           .then(response => {
@@ -47,13 +46,22 @@ describe('app', () => {
       });
   });
 
-
   it('should return 400 bad request when there is no body content or invalid body content', () => {
     return superagent
       .post('http://localhost:3003/api/v1/notes')
       .catch(err => {
         expect(err.response.text).toBe('Bad Request');
         expect(err.status).toBe(400);
+      });
+  });
+
+  it('should  respond with the body content', () => {
+    let object = {'title':'one title', 'name': 'one name', 'content': 'such content'};
+    return superagent
+      .post('http://localhost:3003/api/v1/notes')
+      .send(object)
+      .then(data => {
+        expect(data.body.content).toBe('such content');
       });
   });
 
