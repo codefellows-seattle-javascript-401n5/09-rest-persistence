@@ -1,7 +1,9 @@
 'use strict';
 
-const router = require('../lib/router.js');
-const Notes = require('../models/notes.js');
+const router = require('./src/lib/router.js');
+const Food = require('./src/models/foods.js');
+
+const fs = require('fs');
 
 let sendJSON = (res, data) => {
     res.statusCode = 200;
@@ -19,22 +21,35 @@ let serverError = (res, err) => {
     res.write(JSON.stringify(error));
     res.end();
 };
+router.get('/', (req, res) => {
 
-router.get('/api/v1/notes', (req, res) => {
+    fs.readFile('index.html', (err, data) => {
+
+        let dataString = data.toString();
+        let filler = 'This is the homepage'
+        res.write(dataString.replace('{{filler}}', filler));
+        res.end();
+
+    });
+});
+
+router.get('/api/v1/food', (req, res) => {
     if(req.query.id){
-        Notes.findOne(req.query.id)
+        Food.findOne(req.query.id)
             .then(data => sendJSON(res, data))
             .catch(err => serverError(res, err));
+            res.write(req.query.id);
+            res.end();
     } else {
-        Notes.fetchAll()
+        Food.fetchAll()
             .then(data => sendJSON(res, data))
             .catch(err => serverError(res, err));
     }
 });
 
-router.delete('api/v1/notes', (req, res) => {
+router.delete('api/v1/food', (req, res) => {
     if(req.query.id){
-        Notes.deleteOne(req.query.id)
+        Food.deleteOne(req.query.id)
             .then(success => {
                 let data = {id:req.query.id, deleted:success};
                 sendJSON(res, data);
@@ -43,9 +58,9 @@ router.delete('api/v1/notes', (req, res) => {
     }
 });
 
-router.post('/api/v1/notes', (req, res) => {
+router.post('/api/v1/food', (req, res) => {
 
-    let record = new Notes(req.body);
+    let record = new Food(req.body);
     record.save()
         .then(data => sendJSON(res, data))
         .catch(console.error);
