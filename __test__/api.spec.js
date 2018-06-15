@@ -28,5 +28,5 @@ describe('API module', () => {
         expect(err.responseText).toBe('bad request');
         expect(err.responseStatus).toBe(40);
       });
-  })
+  });
 });
