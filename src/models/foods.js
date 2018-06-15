@@ -3,7 +3,7 @@
 const storage = require('../lib/storage/data-store.js');
 const uuid = require('uuid/v1');
 
-class Note{
+class Food{
 
     constructor(config) {
 
@@ -31,4 +31,4 @@ class Note{
 
 }
 
-module.exports = Note;
+module.exports = Food;
