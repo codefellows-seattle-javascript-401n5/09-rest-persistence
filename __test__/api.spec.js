@@ -8,7 +8,7 @@ describe('API module', () => {
 
     return superagent.get('http://localhost:3000/api/v1/food?id=hotdog')
       .then(response => {
-        expect(response.text).toBe('ID: hotdog was requested');
+        expect(response.text).toBe('hotdog');
       });
   });
 
