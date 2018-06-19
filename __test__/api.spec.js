@@ -1,7 +1,7 @@
 'use strict';
 
 import superagent from 'superagent';
-import app from '../app.js';
+import app from '../src/app.js';
 
 describe('API module', () => {
 
