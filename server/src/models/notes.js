@@ -1,12 +1,11 @@
-'use strict';
+"use strict";
 
 // Models should offload their data storage to another module/system.
 // Here, we'll be using a custom data store module of our own creation
-const storage = require('../lib/storage/data-store.js');
-const uuid = require('uuid/v1');
+const storage = require("../lib/storage/data-store.js");
+const uuid = require("uuid/v1");
 
-class Note{
-
+class Note {
   /**
    * Simple constructor function for our note model
    * @param config
@@ -14,8 +13,8 @@ class Note{
   constructor(config) {
     this.id = uuid();
     this.createdOn = new Date();
-    this.title = config && config.title || '';
-    this.content = config && config.content || '';
+    this.title = (config && config.title) || "";
+    this.content = (config && config.content) || "";
   }
 
   /**
@@ -57,9 +56,9 @@ class Note{
   }
 
   static deleteOne(id) {
+    console.log("about to delete");
     return storage.delete(id);
   }
-
 }
 
 module.exports = Note;
