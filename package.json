@@ -1,0 +1,30 @@
+{
+  "name": "09-rest-persistence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "jest": "^22.4.4",
+    "nodemon": "^1.17.5",
+    "superagent": "^3.8.3",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon server/index.js",
+    "test-watch": "jest --watchAll",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taerichard/09-rest-persistence.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taerichard/09-rest-persistence/issues"
+  },
+  "homepage": "https://github.com/taerichard/09-rest-persistence#readme"
+}
